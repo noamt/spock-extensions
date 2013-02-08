@@ -1,0 +1,24 @@
+apply plugin: 'idea'
+apply plugin: 'groovy'
+apply plugin: 'maven'
+
+group = 'org._10ne.spock'
+version = projectVersion
+archivesBaseName = 'spock-extensions'
+
+repositories {
+    maven { url 'http://repo.jfrog.org/artifactory/libs-releases' }
+}
+
+dependencies {
+    groovy 'org.codehaus.groovy:groovy:2.0.6'
+    compile 'org.spockframework:spock-core:0.7-groovy-2.0'
+}
+
+task wrapper(type: Wrapper, description: 'Gradle Wrapper task') {
+    gradleVersion = '1.4'
+}
+
+test {
+    testReport = true
+}
